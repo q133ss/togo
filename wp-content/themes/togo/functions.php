@@ -194,9 +194,61 @@ add_action( 'wp_enqueue_scripts', 'register_plugin_styles' );
 function register_plugin_styles() {
     wp_register_style( 'main', get_template_directory_uri().'/css/style.min.css');
     wp_enqueue_style( 'main' );
+
+    wp_register_style( 'norm', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css?_v=20220413150441');
+    wp_enqueue_style( 'norm' );
+    wp_register_style( 'swip', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.4/swiper-bundle.min.css?_v=20220413150441');
+    wp_enqueue_style( 'swip' );
+
     wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js?_v=20220413150441', array( 'jquery' ));
-    wp_enqueue_script( 'ScrollTrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/ScrollTrigger.min.js?_v=20220413150441', array( 'jquery' ));
-    wp_enqueue_script( 'swiper', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.4/swiper-bundle.min.js?_v=20220413150441', array( 'jquery' ));
-    wp_enqueue_script( 'newscript', get_template_directory_uri() . '/js/webpack.min.js', array( 'jquery' ));
-    wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.min.js', array( 'jquery' ));
+    wp_enqueue_script( 'ScrollTrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/ScrollTrigger.min.js?_v=20220413150441', array( 'jquery' ), null, true);
+    wp_enqueue_script( 'swiper', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.4/swiper-bundle.min.js?_v=20220413150441', array( 'jquery' ), null, true);
+    wp_enqueue_script( 'newscript', get_template_directory_uri() . '/js/webpack.min.js', array( 'jquery' ), null, true);
+    wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.min.js', array( 'jquery' ), null, true);
+}
+
+class mainMenuWalker extends Walker_Nav_Menu {
+    function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
+        global $wp_query;
+        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+        $class_names = $value = '';
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $classes[] = 'menu-item-' . $item->ID;
+        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+        $class_names = ' class="header__i"';
+        $output .= $indent . '<li' . $value . $class_names .'>';
+        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+        $item_output = $args->before;
+        $item_output .= '<a'. $attributes .'>';
+        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+        $item_output .= '</a>';
+        $item_output .= $args->after;
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
+}
+
+class footerMenuWalker extends Walker_Nav_Menu {
+    function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
+        global $wp_query;
+        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+        $class_names = $value = '';
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $classes[] = 'menu-item-' . $item->ID;
+        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+        $class_names = ' class="footer__nav-i"';
+        $output .= $indent . '<li' . $value . $class_names .'>';
+        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+        $item_output = $args->before;
+        $item_output .= '<a'. $attributes .'>';
+        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+        $item_output .= '</a>';
+        $item_output .= $args->after;
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
 }

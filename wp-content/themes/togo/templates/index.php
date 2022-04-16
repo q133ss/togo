@@ -551,7 +551,6 @@ get_header();
     </section>
     <script>
         $("#vid")[0].play();
-
     </script>
 <?php
 get_footer();

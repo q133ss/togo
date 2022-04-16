@@ -16,13 +16,15 @@
         <div class="footer__wrapper">
             <div class="footer__nav"><a class="footer__nav-logo" href="index.html"><img src="<?php bloginfo('template_directory'); ?>/img/logo__header.png" alt="icons"></a>
                 <ul class="footer__nav-l">
-                    <li class="footer__nav-i"> <a href="about.html">О нас</a></li>
-                    <li class="footer__nav-i"> <a href="portfolio.html">Портфель брендов</a></li>
-                    <li class="footer__nav-i"> <a href="team.html">Наша команда</a></li>
-                    <li class="footer__nav-i"> <a href="partner.html">Партнерам</a></li>
-                    <li class="footer__nav-i"> <a href="investor.html">Инвесторам</a></li>
-                    <li class="footer__nav-i"> <a href="news.html">Новости</a></li>
-                    <li class="footer__nav-i"> <a href="contact.html">Контакты</a></li>
+                    <?php $main_menu = wp_nav_menu( [
+                        'menu' => 'Main menu',
+                        'container'=> null,
+                        'echo'     => false,
+                        'walker' => new footerMenuWalker ()
+                    ] );
+
+                    echo str_replace('<ul id="menu-main-menu-1" class="menu">', '' , str_replace('</ul>', '', $main_menu));
+                    ?>
                 </ul>
             </div>
             <div class="footer__info">
@@ -67,7 +69,6 @@
         </div>
     </div>
 </div>
-
 <?php wp_footer(); ?>
 </body>
 </html>
