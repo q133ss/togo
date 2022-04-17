@@ -7,7 +7,7 @@ window.addEventListener("scroll", function () {
     $(".footer").addClass("opacity");
   }
 });
-$(".ind-main__video").on("click", function () {
+$(".ind-main__video, .ind-main__video-play").on("click", function () {
   $(".video").removeClass("display-n");
   $("body").css("overflow", "hidden");
 });
@@ -170,8 +170,8 @@ var partnerTeamSlider = new Swiper(".partnerTeamSlider", {
   }
 });
 ;
-var boxes = document.querySelectorAll('.about__banner-i ');
-window.addEventListener('scroll', checkBoxes);
+var boxes = document.querySelectorAll(".about__banner-i ");
+window.addEventListener("scroll", checkBoxes);
 checkBoxes();
 
 function checkBoxes() {
@@ -180,9 +180,9 @@ function checkBoxes() {
     var boxTop = box.getBoundingClientRect().top;
 
     if (boxTop < triggerBottom) {
-      box.classList.add('show');
+      box.classList.add("show");
     } else {
-      box.classList.remove('show');
+      box.classList.remove("show");
     }
   });
 }
@@ -199,7 +199,6 @@ var obj = {
 
 for (var key in obj) {
   if (obj.hasOwnProperty(key)) {
-    console.log("".concat(key, " : ").concat(obj[key]));
     gsap.timeline({
       scrollTrigger: {
         trigger: "#".concat(key),

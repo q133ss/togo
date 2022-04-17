@@ -30,6 +30,7 @@ get_header();
             <div class="ind-main__video"><video autoplay muted loop id='vid'>
                     <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
                 </video>
+                <div class="ind-main__video-play"><img src="<?php bloginfo('template_directory'); ?>/svg/index/play.svg" alt="icons"></div>
             </div>
             <div class="ind-main__decor">
                 <div class="ind-main__decor-i"><img src="<?php bloginfo('template_directory'); ?>/svg/index/main/decor__1.svg" alt="icons"></div>
@@ -66,85 +67,83 @@ get_header();
             <div class="ind-portfolio__title">Портфель TOGO</div>
             <div class="ind-portfolio__w">
                 <div class="ind-portfolio__tb">
-                    <ul class="ind-portfolio__nav">
-                        <li class="ind-portfolio__nav-i">
-                            <p>Год</p>
-                        </li>
-                        <li class="ind-portfolio__nav-i">
-                            <p>В портфеле ГК  Like</p>
-                        </li>
-                        <li class="ind-portfolio__nav-i">
-                            <p>Общий оборот</p>
-                        </li>
-                        <li class="ind-portfolio__nav-i">
-                            <p>Наши компании присутствуют</p>
-                        </li>
-                    </ul>
                     <div class="ind-portfolio__table">
-                        <ul class="ind-portfolio__table-w">
-                            <li class="ind-portfolio__table-i">
-                                <p>2021 год</p>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>20 компаний</p>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>1 876 456 789 руб</p>
-                                <div class="ind-portfolio__table-d"><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-down.svg" alt="icons"></div>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>В 129 городах РФ/СНГ/ЕС</p>
-                                <div class="ind-portfolio__table-u"><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-up.svg" alt="icons"></div>
-                            </li>
-                        </ul>
-                        <ul class="ind-portfolio__table-w">
-                            <li class="ind-portfolio__table-i">
-                                <p>2021 год</p>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>20 компаний</p>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>1 876 456 789 руб</p>
-                                <div class="ind-portfolio__table-d"><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-down.svg" alt="icons"></div>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>В 129 городах РФ/СНГ/ЕС</p>
-                                <div class="ind-portfolio__table-u"><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-up.svg" alt="icons"></div>
-                            </li>
-                        </ul>
-                        <ul class="ind-portfolio__table-w">
-                            <li class="ind-portfolio__table-i">
-                                <p>2021 год</p>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>20 компаний</p>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>1 876 456 789 руб</p>
-                                <div class="ind-portfolio__table-d"><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-down.svg" alt="icons"></div>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>В 129 городах РФ/СНГ/ЕС</p>
-                                <div class="ind-portfolio__table-u"><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-up.svg" alt="icons"></div>
-                            </li>
-                        </ul>
-                        <ul class="ind-portfolio__table-w">
-                            <li class="ind-portfolio__table-i">
-                                <p>2021 год</p>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>20 компаний</p>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>1 876 456 789 руб</p>
-                                <div class="ind-portfolio__table-d"><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-down.svg" alt="icons"></div>
-                            </li>
-                            <li class="ind-portfolio__table-i">
-                                <p>В 129 городах РФ/СНГ/ЕС</p>
-                                <div class="ind-portfolio__table-u"><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-up.svg" alt="icons"></div>
-                            </li>
-                        </ul>
+                        <div class="ind-portfolio__table-w">
+                            <div class="ind-portfolio__nav-i">
+                                <p>Год</p>
+                            </div>
+                            <ul class="ind-portfolio__table-bl ind-portfolio__table-year">
+                                <li class="ind-portfolio__table-i">
+                                    <p>2021 год</p>
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>2020 год</p>
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>2019 год</p>
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>2018 год</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ind-portfolio__table-w">
+                            <div class="ind-portfolio__nav-i">
+                                <p>В портфеле ГК  Like</p>
+                            </div>
+                            <ul class="ind-portfolio__table-bl">
+                                <li class="ind-portfolio__table-i">
+                                    <p>20 компаний</p><span>2021 год</span>
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>28 компаний</p><span>2020 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-down.svg" alt="icons">
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>34 компаний</p><span>2019 год</span>
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>45 компаний</p><span>2018 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-up.svg" alt="icons">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ind-portfolio__table-w">
+                            <div class="ind-portfolio__nav-i">
+                                <p>Общий оборот</p>
+                            </div>
+                            <ul class="ind-portfolio__table-bl">
+                                <li class="ind-portfolio__table-i">
+                                    <p>1 876 456 789 руб</p><span>2021 год</span>
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>1 400 456 789 руб</p><span>2020 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-down.svg" alt="icons">
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>450 456 789 руб</p><span>2019 год</span>
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>350 456 789 руб</p><span>2018 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-up.svg" alt="icons">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ind-portfolio__table-w">
+                            <div class="ind-portfolio__nav-i">
+                                <p>Наши компании присутствуют</p>
+                            </div>
+                            <ul class="ind-portfolio__table-bl">
+                                <li class="ind-portfolio__table-i">
+                                    <p>В 129 городах РФ/СНГ/ЕС</p><span>2021 год</span>
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>В 111 городах РФ/СНГ/ЕС</p><span>2020 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-down.svg" alt="icons">
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>В 35 городах РФ/СНГ/ЕС</p><span>2019 год</span>
+                                </li>
+                                <li class="ind-portfolio__table-i">
+                                    <p>В 17 городах РФ/СНГ/ЕС</p><span>2018 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-up.svg" alt="icons">
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -551,6 +550,7 @@ get_header();
     </section>
     <script>
         $("#vid")[0].play();
+
     </script>
 <?php
 get_footer();

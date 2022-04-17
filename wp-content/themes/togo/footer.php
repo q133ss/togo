@@ -17,14 +17,14 @@
             <div class="footer__nav"><a class="footer__nav-logo" href="index.html"><img src="<?php bloginfo('template_directory'); ?>/img/logo__header.png" alt="icons"></a>
                 <ul class="footer__nav-l">
                     <?php $main_menu = wp_nav_menu( [
-                        'menu' => 'Main menu',
-                        'container'=> null,
-                        'echo'     => false,
-                        'walker' => new footerMenuWalker ()
-                    ] );
+                'menu' => 'Main menu',
+                'container'=> null,
+                'echo'     => false,
+                'walker' => new footerMenuWalker ()
+            ] );
 
-                    echo str_replace('<ul id="menu-main-menu-1" class="menu">', '' , str_replace('</ul>', '', $main_menu));
-                    ?>
+            echo str_replace('<ul id="menu-main-menu-1" class="menu">', '' , str_replace('</ul>', '', $main_menu));
+            ?>
                 </ul>
             </div>
             <div class="footer__info">
@@ -49,13 +49,15 @@
             <button class="menu__nav-c"><img src="<?php bloginfo('template_directory'); ?>/svg/close.svg" alt="close"></button>
         </div>
         <ul class="menu__l">
-            <li class="menu__l-i"><a href="about.html">О НАС</a></li>
-            <li class="menu__l-i"><a href="portfolio.html">ПОРТФЕЛЬ БРЕНДОВ</a></li>
-            <li class="menu__l-i"><a href="team.html">НАША КОМАНДА</a></li>
-            <li class="menu__l-i"><a href="partner.html">ПАРТЕРАМ</a></li>
-            <li class="menu__l-i"><a href="investor.html">ИНВЕСТОРАМ</a></li>
-            <li class="menu__l-i"><a href="news.html">НОВОСТИ </a></li>
-            <li class="menu__l-i"><a href="contact.html">КОНТАКТЫ</a></li>
+            <?php $main_menu = wp_nav_menu( [
+                'menu' => 'Main menu',
+                'container'=> null,
+                'echo'     => false,
+                'walker' => new mobileMenuWalker ()
+            ] );
+
+            echo str_replace('<ul id="menu-main-menu-2" class="menu">', '' , str_replace('</ul>', '', $main_menu));
+            ?>
         </ul>
     </div>
 </div>

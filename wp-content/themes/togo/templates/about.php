@@ -5,7 +5,7 @@
 
 get_header();
 ?>
-<section class="about-main">
+<section class="about-main"> 
   <div class="about-main__bg"><img src="<?php bloginfo('template_directory'); ?>/img/about/main/banner.png" alt="img"></div>
   <div class="containers">
     <div class="about-main__wrapper">
@@ -23,12 +23,12 @@ get_header();
     </div>
   </div>
 </section>
-<section class="about-banner">
+<section class="about-banner"> 
   <div class="containers">
     <div class="about-banner__wrapper">
       <div class="about-banner__t">Успех требует сложных моделей данных</div>
-      <div class="about-banner__b">
-        <div class="about__banner">
+      <div class="about-banner__b"> 
+        <div class="about__banner"> 
           <div class="about__banner-i" id="elem__1"><img src="<?php bloginfo('template_directory'); ?>/svg/about__animation/element__1.svg" alt="icons"></div>
           <div class="about__banner-i" id="elem__2"><img src="<?php bloginfo('template_directory'); ?>/svg/about__animation/element__2.svg" alt="icons"></div>
           <div class="about__banner-i" id="elem__3"><img src="<?php bloginfo('template_directory'); ?>/svg/about__animation/element__3.svg" alt="icons"></div>
@@ -45,16 +45,16 @@ get_header();
     </div>
   </div>
 </section>
-<section class="about-description">
+<section class="about-description"> 
   <div class="containers">
     <div class="about-description__w">
-      <div class="about-description__t">
+      <div class="about-description__t"> 
         <p>Команда ГК Togo сделала все это</p>
         <div class="about-description__t-d"><img src="<?php bloginfo('template_directory'); ?>/svg/about/medias.svg" alt="icons"></div>
       </div>
       <ul class="about-description__l">
         <li class="about-description__l-i">
-          <div class="about-description__l-t">
+          <div class="about-description__l-t"> 
             <h5>TOGO - ТОРГОВАЯ КОМПАНИЯ, КОТОРАЯ РАСТЕТ САМА И ПОМОГАЕТ РАСТИ ДРУГИМ </h5>
             <p>MVP продукт протестирован. Наша талантливая команда совершенствует модель каждый день. Мы создаем миллионы долларов совокупной стоимости нескольких брендов товаров. Что еще более важно, мы создаем продукты и услуги, которые помогают не только нам реализовывать свои амбиции, но ссовершенствовать внешний рынка селлеров маркетплейсов, на котором за последние два года произошел взрывной рост. </p>
             <div class="about-description__l-t__d"><img src="<?php bloginfo('template_directory'); ?>/svg/about/decor__1.svg" alt="icons"></div>
@@ -64,7 +64,7 @@ get_header();
           </div>
         </li>
         <li class="about-description__l-i">
-          <div class="about-description__l-t">
+          <div class="about-description__l-t"> 
             <h5>TOGO - АКСЕЛЕРАТОР, РАЗВИВАЮЩАЯ СТАРТАПЫ В ЭЛЕКТРОННОЙ КОММЕРЦИИ </h5>
             <p>Многие предприниматели заработали свои первые деньги на товарах, теперь пора превратить их в капитализируемые компании с собственной торговой маркой. Мы можем предложить им нашу стратегию по взращиванию брендов, либо сумму за которую мы готовы купить их проект. </p>
             <div class="about-description__l-t__d"><img src="<?php bloginfo('template_directory'); ?>/svg/about/decor__3.svg" alt="icons"></div>
@@ -74,7 +74,7 @@ get_header();
           </div>
         </li>
         <li class="about-description__l-i">
-          <div class="about-description__l-t">
+          <div class="about-description__l-t"> 
             <h5>TOGO – РИТЕЙЛЕР НОВОГО ПОКОЛЕНИЯ</h5>
             <p>Вместе мы превращаем Togo в ритейлера нового поколения, который станет самой уникальной платформой электронной коммерции для микробрендов из когда-либо созданных. <br><br>Мы повторим успех Procter & Gamble и Unilever в e-commerce, но на этот раз в России.</p>
             <div class="about-description__l-t__d"><img src="<?php bloginfo('template_directory'); ?>/svg/about/decor__5.svg" alt="icons"></div>
