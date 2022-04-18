@@ -207,6 +207,8 @@ function register_plugin_styles() {
     wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.min.js', array( 'jquery' ), null, true);
 }
 
+//Menu walkers
+
 class mainMenuWalker extends Walker_Nav_Menu {
     function start_el(&$output, $item, $depth = 0, $args = null, $current_object_id = 0) {
         global $wp_query;
@@ -274,4 +276,42 @@ class mobileMenuWalker extends Walker_Nav_Menu {
         $item_output .= $args->after;
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
+}
+
+//End menu walkers
+
+//POST TYPES
+
+add_action( 'init', 'register_post_types' );
+function register_post_types(){
+	register_post_type( 'portfel', [
+		'label'  => null,
+		'labels' => [
+			'name'               => 'Портфель', // основное название для типа записи
+			'singular_name'      => 'Портфель', // название для одной записи этого типа
+			'add_new'            => 'Добавить Портфель', // для добавления новой записи
+			'add_new_item'       => 'Добавление Портфеля', // заголовка у вновь создаваемой записи в админ-панели.
+			'edit_item'          => 'Редактирование Портфеля', // для редактирования типа записи
+			'new_item'           => 'Новый Портфель', // текст новой записи
+			'view_item'          => 'Смотреть Портфель', // для просмотра записи этого типа.
+			'search_items'       => 'Искать Портфель', // для поиска по этим типам записи
+			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+			'parent_item_colon'  => '', // для родителей (у древовидных типов)
+			'menu_name'          => 'Портфель TOGO', // название меню
+		],
+		'description'         => '',
+		'public'              => true,
+		'show_in_menu'        => null, // показывать ли в меню адмнки
+		'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+		'rest_base'           => null, // $post_type. C WP 4.7
+		'menu_position'       => null,
+		'menu_icon'           => null,
+		'hierarchical'        => false,
+		'supports'            => [ 'title' ],
+		'taxonomies'          => [],
+		'has_archive'         => false,
+		'rewrite'             => true,
+		'query_var'           => true,
+	] );
 }

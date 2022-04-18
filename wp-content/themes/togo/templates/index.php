@@ -62,6 +62,19 @@ get_header();
             </div>
         </div>
     </section>
+
+     <?php
+        $posts = get_posts( array(
+            'numberposts' => 0,
+            'orderby'     => 'date',
+            'order'       => 'ASC',
+            'meta_key'    => '',
+            'meta_value'  =>'',
+            'post_type'   => 'portfel',
+            'suppress_filters' => true,
+        ) );
+        ?>
+
     <section class="ind-portfolio">
         <div class="containers">
             <div class="ind-portfolio__title">Портфель TOGO</div>
@@ -73,18 +86,20 @@ get_header();
                                 <p>Год</p>
                             </div>
                             <ul class="ind-portfolio__table-bl ind-portfolio__table-year">
-                                <li class="ind-portfolio__table-i">
-                                    <p>2021 год</p>
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>2020 год</p>
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>2019 год</p>
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>2018 год</p>
-                                </li>
+                                <?php
+                                foreach( $posts as $post ){
+                                    setup_postdata($post);
+                                    ?>
+                                    <li class="ind-portfolio__table-i">
+                                        <p>
+                                        <?php echo get_field('year'); ?>
+                                        </p>
+                                    </li>
+                                    <?php
+                                }
+
+                                wp_reset_postdata(); // сброс
+                                ?>
                             </ul>
                         </div>
                         <div class="ind-portfolio__table-w">
@@ -92,18 +107,23 @@ get_header();
                                 <p>В портфеле ГК  Like</p>
                             </div>
                             <ul class="ind-portfolio__table-bl">
-                                <li class="ind-portfolio__table-i">
-                                    <p>20 компаний</p><span>2021 год</span>
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>28 компаний</p><span>2020 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-down.svg" alt="icons">
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>34 компаний</p><span>2019 год</span>
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>45 компаний</p><span>2018 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-up.svg" alt="icons">
-                                </li>
+                                <?php
+                                foreach( $posts as $post ){
+                                    setup_postdata($post);
+                                    ?>
+                                    <li class="ind-portfolio__table-i">
+                                        <p>
+                                        <?php echo get_field('in_portfel'); ?>
+                                        </p>
+                                        <span><?php echo get_field('year'); ?></span>
+                                        <?php if(get_field('arrow') != 'Убрать'):?>
+                                        <img src="<?php bloginfo('template_directory'); if(get_field('arrow') == 'Вниз'){?>/svg/index/portfolio/arrow-down.svg <?php }else{ ?> /svg/index/portfolio/arrow-up.svg <?php } ?>" alt="icons">
+                                    <?php endif; ?>
+                                    </li>
+                                    <?php
+                                }
+                                wp_reset_postdata(); // сброс
+                                ?>
                             </ul>
                         </div>
                         <div class="ind-portfolio__table-w">
@@ -111,18 +131,21 @@ get_header();
                                 <p>Общий оборот</p>
                             </div>
                             <ul class="ind-portfolio__table-bl">
-                                <li class="ind-portfolio__table-i">
-                                    <p>1 876 456 789 руб</p><span>2021 год</span>
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>1 400 456 789 руб</p><span>2020 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-down.svg" alt="icons">
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>450 456 789 руб</p><span>2019 год</span>
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>350 456 789 руб</p><span>2018 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-up.svg" alt="icons">
-                                </li>
+                                <?php
+                                foreach( $posts as $post ){
+                                    setup_postdata($post);
+                                    ?>
+                                    <li class="ind-portfolio__table-i">
+                                        <p>
+                                        <?php echo get_field('turnover'); ?>
+                                        </p>
+                                        <span><?php echo get_field('year'); ?></span>
+                                    </li>
+                                    <?php
+                                }
+
+                                wp_reset_postdata(); // сброс
+                                ?>
                             </ul>
                         </div>
                         <div class="ind-portfolio__table-w">
@@ -130,18 +153,23 @@ get_header();
                                 <p>Наши компании присутствуют</p>
                             </div>
                             <ul class="ind-portfolio__table-bl">
-                                <li class="ind-portfolio__table-i">
-                                    <p>В 129 городах РФ/СНГ/ЕС</p><span>2021 год</span>
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>В 111 городах РФ/СНГ/ЕС</p><span>2020 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-down.svg" alt="icons">
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>В 35 городах РФ/СНГ/ЕС</p><span>2019 год</span>
-                                </li>
-                                <li class="ind-portfolio__table-i">
-                                    <p>В 17 городах РФ/СНГ/ЕС</p><span>2018 год</span><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/arrow-up.svg" alt="icons">
-                                </li>
+                                <?php
+                                foreach( $posts as $post ){
+                                    setup_postdata($post);
+                                    ?>
+                                    <li class="ind-portfolio__table-i">
+                                        <p>
+                                        <?php echo get_field('present'); ?>
+                                        </p>
+                                        <span><?php echo get_field('year'); ?></span>
+                                        <?php if(get_field('arrow_company') != 'Убрать'):?>
+                                        <img src="<?php bloginfo('template_directory'); if(get_field('arrow_company') == 'Вниз'){?>/svg/index/portfolio/arrow-down.svg <?php }else{ ?> /svg/index/portfolio/arrow-up.svg <?php } ?>" alt="icons">
+                                    <?php endif; ?>
+                                    </li>
+                                    <?php
+                                }
+                                wp_reset_postdata(); // сброс
+                                ?>
                             </ul>
                         </div>
                     </div>
