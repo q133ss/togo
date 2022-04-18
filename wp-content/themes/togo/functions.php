@@ -282,8 +282,11 @@ class mobileMenuWalker extends Walker_Nav_Menu {
 
 //POST TYPES
 
+
 add_action( 'init', 'register_post_types' );
 function register_post_types(){
+
+	//PORTFEL
 	register_post_type( 'portfel', [
 		'label'  => null,
 		'labels' => [
@@ -309,6 +312,102 @@ function register_post_types(){
 		'menu_icon'           => null,
 		'hierarchical'        => false,
 		'supports'            => [ 'title' ],
+		'taxonomies'          => [],
+		'has_archive'         => false,
+		'rewrite'             => true,
+		'query_var'           => true,
+	] );
+
+	//COMPANY
+	register_post_type( 'company', [
+		'label'  => null,
+		'labels' => [
+			'name'               => 'Компания', // основное название для типа записи
+			'singular_name'      => 'Компания', // название для одной записи этого типа
+			'add_new'            => 'Добавить Компанию', // для добавления новой записи
+			'add_new_item'       => 'Добавление Компании', // заголовка у вновь создаваемой записи в админ-панели.
+			'edit_item'          => 'Редактирование Компании', // для редактирования типа записи
+			'new_item'           => 'Новая Компания', // текст новой записи
+			'view_item'          => 'Смотреть Компанию', // для просмотра записи этого типа.
+			'search_items'       => 'Искать Компанию', // для поиска по этим типам записи
+			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+			'parent_item_colon'  => '', // для родителей (у древовидных типов)
+			'menu_name'          => 'Компании', // название меню
+		],
+		'description'         => '',
+		'public'              => true,
+		'show_in_menu'        => null, // показывать ли в меню адмнки
+		'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+		'rest_base'           => null, // $post_type. C WP 4.7
+		'menu_position'       => null,
+		'menu_icon'           => null,
+		'hierarchical'        => false,
+		'supports'            => [ 'title', 'thumbnail' ],
+		'taxonomies'          => [],
+		'has_archive'         => false,
+		'rewrite'             => true,
+		'query_var'           => true,
+	] );
+
+	//EXPERT
+	register_post_type( 'expert', [
+		'label'  => null,
+		'labels' => [
+			'name'               => 'Эксперт', // основное название для типа записи
+			'singular_name'      => 'Эксперт', // название для одной записи этого типа
+			'add_new'            => 'Добавить Эксперта', // для добавления новой записи
+			'add_new_item'       => 'Добавление Эксперта', // заголовка у вновь создаваемой записи в админ-панели.
+			'edit_item'          => 'Редактирование Эксперта', // для редактирования типа записи
+			'new_item'           => 'Новая Эксперт', // текст новой записи
+			'view_item'          => 'Смотреть Эксперта', // для просмотра записи этого типа.
+			'search_items'       => 'Искать Эксперта', // для поиска по этим типам записи
+			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+			'parent_item_colon'  => '', // для родителей (у древовидных типов)
+			'menu_name'          => 'Эксперты', // название меню
+		],
+		'description'         => '',
+		'public'              => true,
+		'show_in_menu'        => null, // показывать ли в меню адмнки
+		'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+		'rest_base'           => null, // $post_type. C WP 4.7
+		'menu_position'       => null,
+		'menu_icon'           => null,
+		'hierarchical'        => false,
+		'supports'            => [ 'title', 'thumbnail' ],
+		'taxonomies'          => [],
+		'has_archive'         => false,
+		'rewrite'             => true,
+		'query_var'           => true,
+	] );
+
+	//TEAM
+	register_post_type( 'team', [
+		'label'  => null,
+		'labels' => [
+			'name'               => 'Команда', // основное название для типа записи
+			'singular_name'      => 'Команда', // название для одной записи этого типа
+			'add_new'            => 'Добавить команду', // для добавления новой записи
+			'add_new_item'       => 'Добавление команды', // заголовка у вновь создаваемой записи в админ-панели.
+			'edit_item'          => 'Редактирование команды', // для редактирования типа записи
+			'new_item'           => 'Новая Команда', // текст новой записи
+			'view_item'          => 'Смотреть команду', // для просмотра записи этого типа.
+			'search_items'       => 'Искать команду', // для поиска по этим типам записи
+			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+			'parent_item_colon'  => '', // для родителей (у древовидных типов)
+			'menu_name'          => 'Команда', // название меню
+		],
+		'description'         => '',
+		'public'              => true,
+		'show_in_menu'        => null, // показывать ли в меню адмнки
+		'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+		'rest_base'           => null, // $post_type. C WP 4.7
+		'menu_position'       => null,
+		'menu_icon'           => null,
+		'hierarchical'        => false,
+		'supports'            => [ 'title', 'thumbnail' ],
 		'taxonomies'          => [],
 		'has_archive'         => false,
 		'rewrite'             => true,

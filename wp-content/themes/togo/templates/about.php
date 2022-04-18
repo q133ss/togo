@@ -11,11 +11,11 @@ get_header();
     <div class="about-main__wrapper">
       <div class="about-main__title">ЧТО МЫ ДЕЛАЕМ?</div>
       <div class="about-main__text">Мы создаем платформу будущего для микробрендов, которая сочетает в себе технологии, данные и аналитику, а также оптимизированную цепочку действий, позволяющую идее воплотиться в высокорентабельную масштабируемую компанию с собственным брендом потребительских товаров.</div>
-      <div class="about-main__btns"><a class="about-main__p" href="#">
+      <div class="about-main__btns"><a class="about-main__p" href="<?php echo get_page_link(18); ?>">
           <p>Войти в портфель Togobrands</p><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 11L11 1" stroke="#0063BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M1 1H11V11" stroke="#0063BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></a><a class="about-main__i" href="#">
+</svg></a><a class="about-main__i" href="<?php echo get_page_link(18); ?>">
           <p>Стать инвестором Togobrands</p><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 11L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M1 1H11V11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -83,7 +83,7 @@ get_header();
             <div class="about-description__l-p__d"><img src="<?php bloginfo('template_directory'); ?>/svg/about/decor__6.svg" alt="icons"></div><img src="<?php bloginfo('template_directory'); ?>/img/about/main/img__3.png" alt="img">
           </div>
         </li>
-      </ul><a class="about-description__b" href="#">
+      </ul><a class="about-description__b" href="<?php echo get_page_link(14); ?>">
         <p>Наша команда</p><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 11L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M1 1H11V11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

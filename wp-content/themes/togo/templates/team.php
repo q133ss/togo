@@ -22,91 +22,33 @@ get_header();
         <div class="team-team__t-d"><img src="<?php bloginfo('template_directory'); ?>/svg/team/decor__1.svg" alt="icons"></div>
       </div>
       <ul class="team-team__l">
+        <?php
+          $team = get_posts( array(
+              'numberposts' => 0,
+              'orderby'     => 'date',
+              'order'       => 'ASC',
+              'meta_key'    => '',
+              'meta_value'  =>'',
+              'post_type'   => 'team',
+              'suppress_filters' => true,
+          ) );
+
+          foreach( $team as $post ){
+            setup_postdata($post);
+          ?>
         <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
+          <div class="team-team__l-p"> <img src="<?php the_post_thumbnail_url(); ?>" alt="img"></div>
           <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
+            <h5><?php the_title(); ?></h5>
+            <p><?php echo get_field('dolg'); ?></p>
           </div>
         </li>
-        <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
-          <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
-          </div>
-        </li>
-        <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
-          <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
-          </div>
-        </li>
-        <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
-          <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
-          </div>
-        </li>
-        <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
-          <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
-          </div>
-        </li>
-        <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
-          <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
-          </div>
-        </li>
-        <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
-          <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
-          </div>
-        </li>
-        <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
-          <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
-          </div>
-        </li>
-        <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
-          <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
-          </div>
-        </li>
-        <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
-          <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
-          </div>
-        </li>
-        <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
-          <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
-          </div>
-        </li>
-        <li class="team-team__l-i">
-          <div class="team-team__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/team/team/people__1.png" alt="img"></div>
-          <div class="team-team__l-t"> 
-            <h5>Филипцова Дарья</h5>
-            <p>HR-Business partne</p>
-          </div>
-        </li>
-      </ul><a class="team-team__b" href="#">
+        <?php
+            }
+            wp_reset_postdata(); // сброс
+        ?>
+        
+      </ul><a class="team-team__b" href="<?php echo get_page_link(16); ?>">
         <p>Стать партнером Togobrands</p><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 11L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M1 1H11V11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

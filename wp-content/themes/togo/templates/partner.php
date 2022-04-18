@@ -78,369 +78,68 @@ get_header();
   <div class="containers">
     <div class="partner-portfolio__w">
       <div class="partner-portfolio__t">ПОРТФЕЛЬ КОМПАНИЙ</div>
-      <div class="partner-portfolio__l"><a class="partner-portfolio__l-i" href="portfolios.html">
-          <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-          <div class="partner-portfolio__l-t">LEVITA</div>
-          <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
+      <div class="partner-portfolio__l">
+
+        <?php
+          $posts = get_posts( array(
+              'numberposts' => 0,
+              'orderby'     => 'date',
+              'order'       => 'ASC',
+              'meta_key'    => '',
+              'meta_value'  =>'',
+              'post_type'   => 'company',
+              'suppress_filters' => true,
+          ) );
+        ?>
+        <?php
+            foreach( $posts as $post ){
+            setup_postdata($post);
+        ?>
+        <a class="partner-portfolio__l-i" href="<?php the_permalink(); ?>">
+          <div class="partner-portfolio__l-p"> <img src="<?php the_post_thumbnail_url(); ?>" alt="img"></div>
+          <div class="partner-portfolio__l-t"><?php the_title(); ?></div>
+          <div class="partner-portfolio__l-d"><?php echo get_field('short'); ?></div>
+          <?php if( have_rows('revenue') ): 
+              while( have_rows('revenue') ) : the_row();
+          ?>
           <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
+            <h5><?php echo get_sub_field('rev_title'); ?></h5>
+            <p><?php echo get_sub_field('rev_rev'); ?></p>
           </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div></a><a class="partner-portfolio__l-i" href="portfolios.html">
-          <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-          <div class="partner-portfolio__l-t">LEVITA</div>
-          <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div></a><a class="partner-portfolio__l-i" href="portfolios.html">
-          <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-          <div class="partner-portfolio__l-t">LEVITA</div>
-          <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div></a><a class="partner-portfolio__l-i" href="portfolios.html">
-          <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-          <div class="partner-portfolio__l-t">LEVITA</div>
-          <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div></a><a class="partner-portfolio__l-i" href="portfolios.html">
-          <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-          <div class="partner-portfolio__l-t">LEVITA</div>
-          <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div></a><a class="partner-portfolio__l-i" href="portfolios.html">
-          <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-          <div class="partner-portfolio__l-t">LEVITA</div>
-          <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div></a><a class="partner-portfolio__l-i" href="portfolios.html">
-          <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-          <div class="partner-portfolio__l-t">LEVITA</div>
-          <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div></a><a class="partner-portfolio__l-i" href="portfolios.html">
-          <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-          <div class="partner-portfolio__l-t">LEVITA</div>
-          <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div></a><a class="partner-portfolio__l-i" href="portfolios.html">
-          <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-          <div class="partner-portfolio__l-t">LEVITA</div>
-          <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div>
-          <div class="partner-portfolio__l-b"> 
-            <h5>Выручка за 2021:</h5>
-            <p>430 678 336 руб</p>
-          </div></a></div>
+          <?php endwhile; endif; ?>
+        </a>
+        <?php
+            }
+            wp_reset_postdata(); // сброс
+        ?>
+
+        </div>
       <div class="partner-portfolio__slider">
         <div class="swiper partnerPortfolioSlider">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
+            <?php
+                foreach( $posts as $post ){
+                setup_postdata($post);
+            ?>
+            <div class="swiper-slide">
+              <a class="partner-portfolio__l-i" href="<?php the_permalink(); ?>">
+                <div class="partner-portfolio__l-p"> <img src="<?php the_post_thumbnail_url(); ?>" alt="img"></div>
+                <div class="partner-portfolio__l-t"><?php the_title(); ?></div>
+                <div class="partner-portfolio__l-d"><?php echo get_field('short'); ?></div>
+                <?php if( have_rows('revenue') ): 
+                    while( have_rows('revenue') ) : the_row();
+                ?>
                 <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
+                  <h5><?php echo get_sub_field('rev_title'); ?></h5>
+                  <p><?php echo get_sub_field('rev_rev'); ?></p>
                 </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
-            <div class="swiper-slide"><a class="partner-portfolio__l-i" href="portfolios.html">
-                <div class="partner-portfolio__l-p"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img"></div>
-                <div class="partner-portfolio__l-t">LEVITA</div>
-                <div class="partner-portfolio__l-d">Сеть студий балета и растяжки</div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div>
-                <div class="partner-portfolio__l-b"> 
-                  <h5>Выручка за 2021:</h5>
-                  <p>430 678 336 руб</p>
-                </div></a></div>
+                <?php endwhile; endif; ?>
+              </a>
+            </div>
+            <?php
+                }
+                wp_reset_postdata(); // сброс
+            ?>
           </div>
         </div>
         <div class="swiper-controls">
@@ -492,124 +191,45 @@ get_header();
         <p>ТВОЙ БУДУЩИЙ <br>КОНСУЛЬТАЦИОННЫЙ СОВЕТ</p><img src="<?php bloginfo('template_directory'); ?>/svg/partner/decor__1.svg" alt="icons">
       </div>
       <ul class="partner-team__l">
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
+        <?php
+          $team = get_posts( array(
+              'numberposts' => 0,
+              'orderby'     => 'date',
+              'order'       => 'ASC',
+              'meta_key'    => '',
+              'meta_value'  =>'',
+              'post_type'   => 'team',
+              'suppress_filters' => true,
+          ) );
+          foreach( $team as $post ){
+              setup_postdata($post);
+        ?>
+        <li class="partner-team__l-i"> <img src="<?php the_post_thumbnail_url(); ?>" alt="img">
+          <h5><?php the_title(); ?></h5>
+          <p><?php echo get_field('dolg'); ?></p>
         </li>
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__2.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
-        </li>
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
-        </li>
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
-        </li>
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__2.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
-        </li>
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
-        </li>
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
-        </li>
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__2.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
-        </li>
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
-        </li>
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__1.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
-        </li>
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__2.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
-        </li>
-        <li class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-          <h5>Филипцова Дарья</h5>
-          <p>HR-Business partne</p>
-        </li>
+        <?php
+            }
+          wp_reset_postdata(); // сброс
+        ?>
       </ul>
       <div class="partner-team__slider"> 
         <div class="swiper partnerTeamSlider">
           <div class="swiper-wrapper">
+            <?php
+            foreach( $team as $post ){
+              setup_postdata($post);
+            ?>
             <div class="swiper-slide">
-              <div class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-                <h5>Филипцова Дарья</h5>
-                <p>HR-Business partne</p>
+              <div class="partner-team__l-i"> <img src="<?php the_post_thumbnail_url(); ?>" alt="img">
+                <h5><?php the_title(); ?></h5>
+                <p><?php echo get_field('dolg'); ?></p>
               </div>
             </div>
-            <div class="swiper-slide">
-              <div class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-                <h5>Филипцова Дарья</h5>
-                <p>HR-Business partne</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-                <h5>Филипцова Дарья</h5>
-                <p>HR-Business partne</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-                <h5>Филипцова Дарья</h5>
-                <p>HR-Business partne</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-                <h5>Филипцова Дарья</h5>
-                <p>HR-Business partne</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-                <h5>Филипцова Дарья</h5>
-                <p>HR-Business partne</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-                <h5>Филипцова Дарья</h5>
-                <p>HR-Business partne</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-                <h5>Филипцова Дарья</h5>
-                <p>HR-Business partne</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-                <h5>Филипцова Дарья</h5>
-                <p>HR-Business partne</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-                <h5>Филипцова Дарья</h5>
-                <p>HR-Business partne</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="partner-team__l-i"> <img src="<?php bloginfo('template_directory'); ?>/img/partner/team/people__3.png" alt="img">
-                <h5>Филипцова Дарья</h5>
-                <p>HR-Business partne</p>
-              </div>
-            </div>
+            <?php
+            }
+            wp_reset_postdata();
+            ?>
           </div>
         </div>
         <div class="swiper-controls">

@@ -21,7 +21,7 @@ get_header();
                         <p>Войти в портфель Togobrands</p><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 11L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M1 1H11V11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg></a><a class="ind-main__info-i" href="#">
+                        </svg></a><a class="ind-main__info-i" href="<?php echo get_page_link(18); ?>">
                         <p>Стать инвестором Togobrands</p><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 11L11 1" stroke="#0063BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M1 1H11V11" stroke="#0063BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -46,7 +46,7 @@ get_header();
                 <div class="ind-description__start-t">
                     <p>
                         КАЖДЫЙ  <span>КРУПНЫЙ </span>БРЕНД НАЧИНАЛСЯ КАК МИКРОБРЕНД</p>
-                </div><a class="ind-description__start-b" href="#">
+                </div><a class="ind-description__start-b" href="<?php echo get_page_link(9); ?>">
                     <p>Подробнее о нас</p><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 11L11 1" stroke="#0063BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M1 1H11V11" stroke="#0063BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -184,202 +184,75 @@ get_header();
                     <p>Топ портфельных <br>компаний</p>
                     <div class="ind-portfolio__start-d"><img src="<?php bloginfo('template_directory'); ?>/svg/index/portfolio/decor__1.svg" alt="icons"></div>
                 </div>
-                <div class="ind-portfolio__list"><a class="ind-portfolio__list-i" href="#">
-                        <div class="ind-portfolio__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/portfolio/photo.png" alt="img"></div>
-                        <div class="ind-portfolio__list-t">LEVITA</div>
-                        <div class="ind-portfolio__list-d">Сеть студий балета и растяжки</div>
+                <div class="ind-portfolio__list">
+                    <?php
+                    $posts = get_posts( array(
+                        'numberposts' => 0,
+                        'orderby'     => 'date',
+                        'order'       => 'ASC',
+                        'meta_key'    => '',
+                        'meta_value'  =>'',
+                        'post_type'   => 'company',
+                        'suppress_filters' => true,
+                    ) );
+                    ?>                    
+
+                    <?php
+                        foreach( $posts as $post ){
+                        setup_postdata($post);
+                    ?>
+                    <a class="ind-portfolio__list-i" href="<?php the_permalink(); ?>">
+                        <div class="ind-portfolio__list-p"><img src="<?php the_post_thumbnail_url(); ?>" alt="img"></div>
+                        <div class="ind-portfolio__list-t"> <?php the_title(); ?></div>
+                        <div class="ind-portfolio__list-d"><?php echo get_field('short'); ?></div>
                         <ul class="ind-portfolio__list-l">
+                            <?php if( have_rows('revenue') ): 
+                                while( have_rows('revenue') ) : the_row();
+                            ?>
                             <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
+                                <h5><?php echo get_sub_field('rev_title'); ?></h5>
+                                <p><?php echo get_sub_field('rev_rev'); ?></p>
                             </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                        </ul></a><a class="ind-portfolio__list-i" href="#">
-                        <div class="ind-portfolio__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/portfolio/photo.png" alt="img"></div>
-                        <div class="ind-portfolio__list-t">LEVITA</div>
-                        <div class="ind-portfolio__list-d">Сеть студий балета и растяжки</div>
-                        <ul class="ind-portfolio__list-l">
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                        </ul></a><a class="ind-portfolio__list-i" href="#">
-                        <div class="ind-portfolio__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/portfolio/photo.png" alt="img"></div>
-                        <div class="ind-portfolio__list-t">LEVITA</div>
-                        <div class="ind-portfolio__list-d">Сеть студий балета и растяжки</div>
-                        <ul class="ind-portfolio__list-l">
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                        </ul></a><a class="ind-portfolio__list-i" href="#">
-                        <div class="ind-portfolio__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/portfolio/photo.png" alt="img"></div>
-                        <div class="ind-portfolio__list-t">LEVITA</div>
-                        <div class="ind-portfolio__list-d">Сеть студий балета и растяжки</div>
-                        <ul class="ind-portfolio__list-l">
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                        </ul></a><a class="ind-portfolio__list-i" href="#">
-                        <div class="ind-portfolio__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/portfolio/photo.png" alt="img"></div>
-                        <div class="ind-portfolio__list-t">LEVITA</div>
-                        <div class="ind-portfolio__list-d">Сеть студий балета и растяжки</div>
-                        <ul class="ind-portfolio__list-l">
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                        </ul></a><a class="ind-portfolio__list-i" href="#">
-                        <div class="ind-portfolio__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/portfolio/photo.png" alt="img"></div>
-                        <div class="ind-portfolio__list-t">LEVITA</div>
-                        <div class="ind-portfolio__list-d">Сеть студий балета и растяжки</div>
-                        <ul class="ind-portfolio__list-l">
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                            <li class="ind-portfolio__list-b">
-                                <h5>Выручка за 2021:</h5>
-                                <p>430 678 336 руб</p>
-                            </li>
-                        </ul></a></div>
+                        <?php endwhile; endif; ?>
+                        </ul>
+                    </a>
+                    <?php
+                        }
+                        wp_reset_postdata(); // сброс
+                    ?>
+                  
+                </div>
                 <div class="ind-portfolio__slider">
                     <div class="swiper indexPortfolio">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><a class="ind-portfolio__list-i" href="#">
-                                    <div class="ind-portfolio__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/portfolio/photo.png" alt="img"></div>
-                                    <div class="ind-portfolio__list-t">LEVITA</div>
-                                    <div class="ind-portfolio__list-d">Сеть студий балета и растяжки</div>
+                            <?php
+                            foreach( $posts as $post ){
+                            setup_postdata($post);
+                            ?>
+                            <div class="swiper-slide">
+                                <a class="ind-portfolio__list-i" href="<?php the_permalink(); ?>">
+                                    <div class="ind-portfolio__list-p">
+                                        <img src="<?php the_post_thumbnail_url(); ?>" alt="img">
+                                    </div>
+                                    <div class="ind-portfolio__list-t"><?php the_title(); ?></div>
+                                    <div class="ind-portfolio__list-d"><?php echo get_field('short'); ?></div>
                                     <ul class="ind-portfolio__list-l">
+                                        <?php if( have_rows('revenue') ): 
+                                            while( have_rows('revenue') ) : the_row();
+                                        ?>
                                         <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
+                                            <h5><?php echo get_sub_field('rev_title'); ?></h5>
+                                            <p><?php echo get_sub_field('rev_rev'); ?></p>
                                         </li>
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                    </ul></a></div>
-                            <div class="swiper-slide"><a class="ind-portfolio__list-i" href="#">
-                                    <div class="ind-portfolio__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/portfolio/photo.png" alt="img"></div>
-                                    <div class="ind-portfolio__list-t">LEVITA</div>
-                                    <div class="ind-portfolio__list-d">Сеть студий балета и растяжки</div>
-                                    <ul class="ind-portfolio__list-l">
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                    </ul></a></div>
-                            <div class="swiper-slide"><a class="ind-portfolio__list-i" href="#">
-                                    <div class="ind-portfolio__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/portfolio/photo.png" alt="img"></div>
-                                    <div class="ind-portfolio__list-t">LEVITA</div>
-                                    <div class="ind-portfolio__list-d">Сеть студий балета и растяжки</div>
-                                    <ul class="ind-portfolio__list-l">
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                    </ul></a></div>
-                            <div class="swiper-slide"><a class="ind-portfolio__list-i" href="#">
-                                    <div class="ind-portfolio__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/portfolio/photo.png" alt="img"></div>
-                                    <div class="ind-portfolio__list-t">LEVITA</div>
-                                    <div class="ind-portfolio__list-d">Сеть студий балета и растяжки</div>
-                                    <ul class="ind-portfolio__list-l">
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                    </ul></a></div>
-                            <div class="swiper-slide"><a class="ind-portfolio__list-i" href="#">
-                                    <div class="ind-portfolio__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/portfolio/photo.png" alt="img"></div>
-                                    <div class="ind-portfolio__list-t">LEVITA</div>
-                                    <div class="ind-portfolio__list-d">Сеть студий балета и растяжки</div>
-                                    <ul class="ind-portfolio__list-l">
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                        <li class="ind-portfolio__list-b">
-                                            <h5>Выручка за 2021:</h5>
-                                            <p>430 678 336 руб</p>
-                                        </li>
-                                    </ul></a></div>
+                                       <?php endwhile; endif; ?>
+                                    </ul>
+                                </a>
+                            </div>
+                            <?php
+                                }
+                                wp_reset_postdata(); // сброс
+                            ?>
+
                         </div>
                     </div>
                     <div class="swiper-controls">
@@ -406,8 +279,8 @@ get_header();
                         <div class="ind-team__start-l"></div>
                         <div class="ind-team__start-t">
                             <h5>Получить инвестиции</h5>
-                            <div class="ind-team__start-link"> <a href="#">
-                                    <p>Заполнить анкету</p><img src="<?php bloginfo('template_directory'); ?>/svg/index/team/arrow__link.svg" alt="icons"></a><a href="#">
+                            <div class="ind-team__start-link"> <a href="<?php echo get_page_link(18); ?>">
+                                    <p>Заполнить анкету</p><img src="<?php bloginfo('template_directory'); ?>/svg/index/team/arrow__link.svg" alt="icons"></a><a href="<?php echo get_page_link(18); ?>">
                                     <p>Подробнее</p><img src="<?php bloginfo('template_directory'); ?>/svg/index/team/arrow__link.svg" alt="icons"></a></div>
                         </div>
                     </div>
@@ -416,115 +289,64 @@ get_header();
                         <div class="ind-team__start-l"></div>
                         <div class="ind-team__start-t">
                             <h5>Стать партнером togobrands</h5>
-                            <div class="ind-team__start-link"> <a href="#">
-                                    <p>Заполнить анкету</p><img src="<?php bloginfo('template_directory'); ?>/svg/index/team/arrow__link.svg" alt="icons"></a><a href="#">
+                            <div class="ind-team__start-link"> <a href="<?php echo get_page_link(16); ?>">
+                                    <p>Заполнить анкету</p><img src="<?php bloginfo('template_directory'); ?>/svg/index/team/arrow__link.svg" alt="icons"></a><a href="<?php echo get_page_link(16); ?>">
                                     <p>Подробнее</p><img src="<?php bloginfo('template_directory'); ?>/svg/index/team/arrow__link.svg" alt="icons"></a></div>
                         </div>
                     </div>
                 </div>
                 <ul class="ind-team__list">
+                    <?php
+                    $posts = get_posts( array(
+                        'numberposts' => 0,
+                        'orderby'     => 'date',
+                        'order'       => 'ASC',
+                        'meta_key'    => '',
+                        'meta_value'  =>'',
+                        'post_type'   => 'expert',
+                        'suppress_filters' => true,
+                    ) );
+                    ?>                    
+
+                    <?php
+                        foreach( $posts as $post ){
+                        setup_postdata($post);
+                    ?>
                     <li class="ind-team__list-i">
-                        <div class="ind-team__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/team/people__1.png" alt="img"></div>
+                        <div class="ind-team__list-p"><img src="<?php the_post_thumbnail_url(); ?>" alt="img"></div>
                         <div class="ind-team__list-t">
-                            <div class="ind-team__list-d">Мы живем в новый золотой век электронной коммерции, когда микробренды конкурируют с традиционными крупными брендами. Эта тенденция образовалась в следствии прямого обращения </div>
-                            <h5>Антон Бестугин</h5>
-                            <p>Соучредитель акселератора TOGO</p>
+                            <div class="ind-team__list-d"><?php echo get_field('description'); ?></div>
+                            <h5><?php the_title(); ?></h5>
+                            <p><?php echo get_field('dolg'); ?></p>
                         </div>
                     </li>
-                    <li class="ind-team__list-i">
-                        <div class="ind-team__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/team/people__2.png" alt="img"></div>
-                        <div class="ind-team__list-t">
-                            <div class="ind-team__list-d">Мы живем в новый золотой век электронной коммерции, когда микробренды конкурируют с традиционными крупными брендами. Эта тенденция образовалась в следствии прямого обращения </div>
-                            <h5>Алексей прохоров</h5>
-                            <p>Соучредитель акселератора TOGO</p>
-                        </div>
-                    </li>
-                    <li class="ind-team__list-i">
-                        <div class="ind-team__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/team/people__3.png" alt="img"></div>
-                        <div class="ind-team__list-t">
-                            <div class="ind-team__list-d">Мы живем в новый золотой век электронной коммерции, когда микробренды конкурируют с традиционными крупными брендами. Эта тенденция образовалась в следствии прямого обращения </div>
-                            <h5>Филипцова Дарья</h5>
-                            <p>HR-Business partne</p>
-                        </div>
-                    </li>
-                    <li class="ind-team__list-i">
-                        <div class="ind-team__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/team/people__4.png" alt="img"></div>
-                        <div class="ind-team__list-t">
-                            <div class="ind-team__list-d">Мы живем в новый золотой век электронной коммерции, когда микробренды конкурируют с традиционными крупными брендами. Эта тенденция образовалась в следствии прямого обращения </div>
-                            <h5>Анастасия Заморина</h5>
-                            <p>управляющий бренда EuphoriaLab</p>
-                        </div>
-                    </li>
-                    <li class="ind-team__list-i">
-                        <div class="ind-team__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/team/people__5.png" alt="img"></div>
-                        <div class="ind-team__list-t">
-                            <div class="ind-team__list-d">Мы живем в новый золотой век электронной коммерции, когда микробренды конкурируют с традиционными крупными брендами. Эта тенденция образовалась в следствии прямого обращения </div>
-                            <h5>Екатерина Старостенко</h5>
-                            <p>управляющий бренда SEAGO</p>
-                        </div>
-                    </li>
-                    <li class="ind-team__list-i">
-                        <div class="ind-team__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/team/people__6.png" alt="img"></div>
-                        <div class="ind-team__list-t">
-                            <div class="ind-team__list-d">Мы живем в новый золотой век электронной коммерции, когда микробренды конкурируют с традиционными крупными брендами. Эта тенденция образовалась в следствии прямого обращения </div>
-                            <h5>Анастасия Заморина</h5>
-                            <p>управляющий бренда EuphoriaLab</p>
-                        </div>
-                    </li>
+                    <?php
+                        }
+                        wp_reset_postdata(); // сброс
+                    ?>
+                    
                 </ul>
                 <div class="ind-team__slider">
                     <div class="swiper indexTeam">
                         <div class="swiper-wrapper">
+                            <?php
+                                foreach( $posts as $post ){
+                                setup_postdata($post);
+                            ?>
                             <div class="swiper-slide">
                                 <div class="ind-team__list-i">
-                                    <div class="ind-team__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/team/people__6.png" alt="img"></div>
+                                    <div class="ind-team__list-p"><img src="<?php the_post_thumbnail_url(); ?>" alt="img"></div>
                                     <div class="ind-team__list-t">
-                                        <div class="ind-team__list-d">Мы живем в новый золотой век электронной коммерции, когда микробренды конкурируют с традиционными крупными брендами. Эта тенденция образовалась в следствии прямого обращения </div>
-                                        <h5>Алексей прохоров</h5>
-                                        <p>Соучредитель акселератора TOGO</p>
+                                        <div class="ind-team__list-d"><?php echo get_field('description'); ?></div>
+                                        <h5><?php the_title(); ?></h5>
+                                        <p><?php echo get_field('dolg'); ?></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="ind-team__list-i">
-                                    <div class="ind-team__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/team/people__6.png" alt="img"></div>
-                                    <div class="ind-team__list-t">
-                                        <div class="ind-team__list-d">Мы живем в новый золотой век электронной коммерции, когда микробренды конкурируют с традиционными крупными брендами. Эта тенденция образовалась в следствии прямого обращения </div>
-                                        <h5>Алексей прохоров</h5>
-                                        <p>Соучредитель акселератора TOGO</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="ind-team__list-i">
-                                    <div class="ind-team__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/team/people__6.png" alt="img"></div>
-                                    <div class="ind-team__list-t">
-                                        <div class="ind-team__list-d">Мы живем в новый золотой век электронной коммерции, когда микробренды конкурируют с традиционными крупными брендами. Эта тенденция образовалась в следствии прямого обращения </div>
-                                        <h5>Алексей прохоров</h5>
-                                        <p>Соучредитель акселератора TOGO</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="ind-team__list-i">
-                                    <div class="ind-team__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/team/people__6.png" alt="img"></div>
-                                    <div class="ind-team__list-t">
-                                        <div class="ind-team__list-d">Мы живем в новый золотой век электронной коммерции, когда микробренды конкурируют с традиционными крупными брендами. Эта тенденция образовалась в следствии прямого обращения </div>
-                                        <h5>Алексей прохоров</h5>
-                                        <p>Соучредитель акселератора TOGO</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="ind-team__list-i">
-                                    <div class="ind-team__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/team/people__6.png" alt="img"></div>
-                                    <div class="ind-team__list-t">
-                                        <div class="ind-team__list-d">Мы живем в новый золотой век электронной коммерции, когда микробренды конкурируют с традиционными крупными брендами. Эта тенденция образовалась в следствии прямого обращения </div>
-                                        <h5>Алексей прохоров</h5>
-                                        <p>Соучредитель акселератора TOGO</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php
+                                }
+                                wp_reset_postdata(); // сброс
+                            ?>
                         </div>
                     </div>
                     <div class="swiper-controls">
@@ -537,37 +359,54 @@ get_header();
     <section class="ind-news">
         <div class="containers">
             <div class="ind-news__title">Новости</div>
-            <div class="ind-news__list"><a class="ind-news__list-i" href="news.html">
-                    <div class="ind-news__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/news/photo.png" alt="img"></div>
-                    <div class="ind-news__list-t">Как развивать свой новый бренд</div>
-                    <div class="ind-news__list-d">Мы живем в новый золотой век электронной коммерции</div>
-                    <div class="ind-news__list-b">Подробнее  ›</div></a><a class="ind-news__list-i" href="news.html">
-                    <div class="ind-news__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/news/photo.png" alt="img"></div>
-                    <div class="ind-news__list-t">Как развивать свой новый бренд</div>
-                    <div class="ind-news__list-d">Мы живем в новый золотой век электронной коммерции</div>
-                    <div class="ind-news__list-b">Подробнее  ›</div></a><a class="ind-news__list-i" href="news.html">
-                    <div class="ind-news__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/news/photo.png" alt="img"></div>
-                    <div class="ind-news__list-t">Как развивать свой новый бренд</div>
-                    <div class="ind-news__list-d">Мы живем в новый золотой век электронной коммерции</div>
-                    <div class="ind-news__list-b">Подробнее  ›</div></a></div>
+            <div class="ind-news__list">
+                <?php
+                    $news = get_posts( array(
+                        'numberposts' => 0,
+                        'orderby'     => 'date',
+                        'order'       => 'ASC',
+                        'meta_key'    => '',
+                        'meta_value'  =>'',
+                        'post_type'   => 'post',
+                        'suppress_filters' => true,
+                    ) );
+                    ?>                    
+
+                    <?php
+                        foreach( $news as $post ){
+                        setup_postdata($post);
+                    ?>
+                <a class="ind-news__list-i" href="<?php the_permalink(); ?>">
+                    <div class="ind-news__list-p"><img src="<?php the_post_thumbnail_url(); ?>" alt="img"></div>
+                    <div class="ind-news__list-t"><?php the_title(); ?></div>
+                    <div class="ind-news__list-d"><?php the_excerpt(); ?></div>
+                    <div class="ind-news__list-b">Подробнее  ›</div>
+                </a>
+                <?php
+                    }
+                    wp_reset_postdata(); // сброс
+                ?>
+
+                </div>
             <div class="ind-news__s">
                 <div class="swiper indexNews">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"> <a class="ind-news__list-i" href="news.html">
-                                <div class="ind-news__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/news/photo.png" alt="img"></div>
-                                <div class="ind-news__list-t">Как развивать свой новый бренд</div>
-                                <div class="ind-news__list-d">Мы живем в новый золотой век электронной коммерции</div>
-                                <div class="ind-news__list-b">Подробнее  ›</div></a></div>
-                        <div class="swiper-slide"> <a class="ind-news__list-i" href="news.html">
-                                <div class="ind-news__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/news/photo.png" alt="img"></div>
-                                <div class="ind-news__list-t">Как развивать свой новый бренд</div>
-                                <div class="ind-news__list-d">Мы живем в новый золотой век электронной коммерции</div>
-                                <div class="ind-news__list-b">Подробнее  ›</div></a></div>
-                        <div class="swiper-slide"> <a class="ind-news__list-i" href="news.html">
-                                <div class="ind-news__list-p"><img src="<?php bloginfo('template_directory'); ?>/img/index/news/photo.png" alt="img"></div>
-                                <div class="ind-news__list-t">Как развивать свой новый бренд</div>
-                                <div class="ind-news__list-d">Мы живем в новый золотой век электронной коммерции</div>
-                                <div class="ind-news__list-b">Подробнее  ›</div></a></div>
+                        <?php
+                            foreach( $news as $post ){
+                            setup_postdata($post);
+                        ?>
+                        <div class="swiper-slide">
+                            <a class="ind-news__list-i" href="<?php the_permalink(); ?>">
+                                <div class="ind-news__list-p"><img src="<?php the_post_thumbnail_url(); ?>" alt="img"></div>
+                                <div class="ind-news__list-t"><?php the_title(); ?></div>
+                                <div class="ind-news__list-d"><?php the_excerpt(); ?></div>
+                                <div class="ind-news__list-b">Подробнее  ›</div>
+                            </a>
+                        </div>
+                        <?php
+                            }
+                            wp_reset_postdata(); // сброс
+                        ?>
                     </div>
                 </div>
                 <div class="swiper-controls">
